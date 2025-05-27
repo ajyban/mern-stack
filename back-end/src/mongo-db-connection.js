@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { Articles } from './db/articles.model.js';
 
 const MONGO_DB_URL = process.env.MONGODB_USERNAME
-    ? `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.cjun33p.mongodb.net`
+    ? `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.cjun33p.mongodb.net/articlesdb`
     : 'mongodb://127.0.0.1:27017/articlesdb';
 
 export async function connectToDB() {
