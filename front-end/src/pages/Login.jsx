@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { signInWithEmailAndPassword, getAuth } from 'firebase/auth'
 
 
@@ -8,12 +8,18 @@ export default function Login() {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('');
 
+    const navigate = useNavigate();
+
     async function doLogin() {
-        await signInWithEmailAndPassword(getAuth(), email, password)
+        const res = await signInWithEmailAndPassword(getAuth(), email, password)
             .catch(() => {
                 setError('Email or password is incorrect');
                 return null;
             })
+        if (res?.user) {
+            navigate('/articles');
+        }
+
     }
 
     return <>

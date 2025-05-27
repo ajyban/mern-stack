@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCTeNrqpnTCq9icHJT9S9M4lK8KkSLPtnc",
-  authDomain: "react-app-ajyban.firebaseapp.com",
-  projectId: "react-app-ajyban",
-  storageBucket: "react-app-ajyban.firebasestorage.app",
-  messagingSenderId: "516998063827",
-  appId: "1:516998063827:web:4d0b0118fb60eb68a9d626"
+  apiKey: "AIzaSyC1EVGVzliooogPU5w9xjHwoN4jiohRGVY",
+  authDomain: "mern-stack-ajyban.firebaseapp.com",
+  projectId: "mern-stack-ajyban",
+  storageBucket: "mern-stack-ajyban.firebasestorage.app",
+  messagingSenderId: "887935590599",
+  appId: "1:887935590599:web:5fac1b1aa0fb7a3117dee2"
 };
 
 

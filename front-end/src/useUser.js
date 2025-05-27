@@ -6,10 +6,12 @@ const useUser = () => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        const unsub = onAuthStateChanged(getAuth, function (user) {
+        const unsub = onAuthStateChanged(getAuth(), function (user) {
             setUser(user);
             setIsLoading(false)
 
+        }, function(err){
+            console.log(err)
         });
         return unsub;
     }, []);

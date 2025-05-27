@@ -1,14 +1,14 @@
 import { NavLink, useNavigate } from 'react-router';
 import './Navbar.css';
-import { getAuth, signOut } from 'firebase/auth'
+import { getAuth, signOut } from 'firebase/auth';
+import useUser from '../../useUser';
 
 export default function Navbar() {
-    const isLoggedIn = true;
-    const userEmail = 'a@a.com'
+    const { isLoading, user } = useUser()
     const navigate = useNavigate();
 
     function doSignOut() {
-        if (isLoggedIn) {
+        if (user) {
             signOut(getAuth());
             return;
         }
@@ -27,10 +27,13 @@ export default function Navbar() {
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/articles">Articles</NavLink>
                     </li>
-                    <li>
-                        {userEmail && <span>Welcome, {userEmail}</span>}
-                        <button onClick={doSignOut}>{isLoggedIn ? 'Log Out' : 'Log In'}</button>
-                    </li>
+                    {isLoading && <p>Loading</p>}
+                    {!isLoading &&
+                        <li>
+                            {user && user.email && <span>Welcome, {user.email}</span>}
+                            <button onClick={doSignOut}>{user ? 'Log Out' : 'Log In'}</button>
+                        </li>
+                    }
                 </ul>
 
             </div>

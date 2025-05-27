@@ -1,2 +1,6 @@
 node_modules
 package-lock.json
+credentials.json
+dist
+.env
+prod-env.yaml
