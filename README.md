@@ -15,3 +15,4 @@ env_variables:
 
 
   gcloud auth login
+  gcloud config set project PROJECT_ID
