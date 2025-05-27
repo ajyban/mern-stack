@@ -4,4 +4,12 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://special-orbit-4jgjjq6v9x53pjq-8000.app.github.dev',
+        changeOrigin: true
+      }
+    }
+  }
 })

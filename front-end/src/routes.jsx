@@ -1,8 +1,10 @@
 import Layout from './components/layout/Layout';
 import About from './pages/About';
-import Article from './pages/Article';
+import Article, { loader as articleLoader } from './pages/Article';
 import ArticlesList from './pages/ArticlesList';
+import CreateAccount from './pages/CreateAccount';
 import Home from './pages/Home'
+import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 
 export const routes = [{
@@ -21,7 +23,14 @@ export const routes = [{
             element: <ArticlesList />
         }, {
             path: '/articles/:name',
-            element: <Article />
+            element: <Article />,
+            loader: articleLoader
+        }, {
+            path: '/login',
+            element: <Login />
+        }, {
+            path: '/create-account',
+            element: <CreateAccount />
         }
     ]
 }];
